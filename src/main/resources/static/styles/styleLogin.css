@@ -1,0 +1,47 @@
+.with {
+    width: 500px;
+    padding: 50px;
+}
+
+.msg {
+    color: red;
+
+}
+
+.avtoriz {
+    color: green;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.b {
+    margin-right: 20px;
+    height: 40px;
+}
+
+.div-add {
+    padding: 0px 0px 20px 0px;
+}
+
+.wrap {
+    width: 100px;
+}
+
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px 0px 20px;
+}
+
+.admin-flex {
+    display: flex;
+    align-items: center;
+
+    padding: 0px 20px 0px 20px;
+}

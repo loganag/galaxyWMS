@@ -1,10 +1,11 @@
 package com.example.galaxyWMS.controller;
 
-import com.example.galaxyWMS.domain.Goods;
-import com.example.galaxyWMS.repos.GoogsRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.galaxyWMS.domain.Item;
+import com.example.galaxyWMS.repos.ItemRepo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,42 +13,43 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-    @Autowired
-    private GoogsRepo googsRepo;
+    private final ItemRepo itemRepo;
+
+    public MainController(ItemRepo itemRepo) {
+        this.itemRepo = itemRepo;
+    }
 
     @GetMapping("/")
-    public String greeting(Map<String, Object> model) {
-        return "greeting";
-    }
+    public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+        Iterable<Item> items = itemRepo.findAll();
 
-    @GetMapping("/main")
-    public String main(Map<String, Object> model) {
-        Iterable<Goods> goods = googsRepo.findAll();
-        model.put("goods", goods);
-        return "main";
-    }
-
-    @PostMapping("/main")
-    public String add(@RequestParam String name, @RequestParam Float price, Map<String, Object> model){
-        Goods good = new Goods(name, price);
-        googsRepo.save(good);
-
-        Iterable<Goods> goods = googsRepo.findAll();
-        model.put("goods", goods);
-        return "main";
-    }
-
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model){
-        Iterable<Goods> goods;
         if(filter != null && !filter.isEmpty()) {
-            goods = googsRepo.findByName(filter);
+            items = itemRepo.findByName(filter);
         }
         else {
-            goods = googsRepo.findAll();
+            items = itemRepo.findAll();
         }
-        model.put("goods", goods);
+
+        model.addAttribute("items", items);
+        model.addAttribute("filter", filter);
+
         return "main";
+    }
+
+    @PostMapping("/")
+    public String add(@RequestParam String name, @RequestParam Float price, Map<String, Object> model){
+        Item item = new Item(name, price);
+        itemRepo.save(item);
+
+        Iterable<Item> items = itemRepo.findAll();
+        model.put("items", items);
+        return "main";
+    }
+
+    @PostMapping("/itemDelete/{id}")
+    public String deleteItem(@PathVariable("id") Long id){
+        itemRepo.deleteById(id);
+        return "redirect:/";
     }
 
 }
