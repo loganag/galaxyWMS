@@ -1,0 +1,244 @@
+html {
+    overflow-x: hidden
+}
+
+body {
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.number-date {
+    display: flex;
+    flex-direction: row;
+    gap: 10pt;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 10pt;
+    padding-top: 20pt;
+    padding-bottom: 20pt;
+}
+
+.table-wrapper {
+    /*width: 700px;*/
+    margin: 30px auto;
+    background: #fff;
+    /*padding: 20px;*/
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.title {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 10px;
+    margin: 0 0 10px;
+}
+
+.table-title h2 {
+    margin: 6px 0 0;
+    font-size: 22px;
+}
+
+.table-title .add-new {
+    float: right;
+    height: 30px;
+    font-weight: bold;
+    font-size: 12px;
+    text-shadow: none;
+    min-width: 100px;
+    border-radius: 50px;
+    line-height: 13px;
+}
+
+.table-title .add-new i {
+    margin-right: 4px;
+}
+
+table.table {
+    table-layout: fixed;
+}
+
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+
+table.table th i {
+    font-size: 13px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+table.table th:last-child {
+    width: 100px;
+}
+
+table.table td a {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    min-width: 24px;
+}
+
+table.table td a.add {
+    color: #27C46B;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #E34724;
+}
+
+table.table td i {
+    font-size: 19px;
+}
+
+table.table td a.add i {
+    font-size: 24px;
+    margin-right: -1px;
+    position: relative;
+    top: 3px;
+}
+
+table.table .form-control {
+    height: 32px;
+    line-height: 32px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+table.table .form-control.error {
+    border-color: #f50000;
+}
+
+table.table td .add {
+    display: none;
+}
+
+/*.table {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    flex-wrap:nowrap;*/
+
+/*}*/
+
+/*.table-responsive{
+    max-height: 500px !important;
+    overflow: scroll;
+}*/
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    /*-webkit-transition: all 0.5s ease;*/
+    /*-moz-transition: all 0.5s ease;*/
+    /*-o-transition: all 0.5s ease;*/
+    /*transition: all 0.5s ease;*/
+}
+
+#wrapper.toggled {
+    /*padding-left: 250px;*/
+}
+
+.sidebar {
+    /*height: 100vh;*/
+    /*width: 250px;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*flex-grow: 1;*/
+}
+
+#sidebar-wrapper {
+
+    /*z-index: 1000;*/
+    /*position: fixed;*/
+    /*left: 250px;*/
+    width: 200px;
+    height: 100%;
+    /*margin-left: -250px;*/
+    overflow-y: auto;
+    background: #000;
+    /*-webkit-transition: all 0.5s ease;*/
+    /*-moz-transition: all 0.5s ease;*/
+    /*-o-transition: all 0.5s ease;*/
+    /*transition: all 0.5s ease;*/
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 200px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    /*margin-right: -250px;*/
+}
+
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    /*position: absolute;*/
+    top: 0;
+    width: 200px;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
